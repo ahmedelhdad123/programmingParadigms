@@ -1,6 +1,5 @@
 package com.proramming.paradigms.task2;
 
-import com.proramming.paradigms.Main;
 
 import java.util.Scanner;
 
@@ -9,7 +8,13 @@ public class Task2 {
         Scanner sc = new Scanner(System.in);
         String name = sc.nextLine();
 
-        register(name, Task2::sendWelcomeMail);
+        //register(name, Task2::sendWelcomeMail);
+        register(name, new Callback() {
+            @Override
+            public void callBack(String mail) {
+                sendWelcomeMail(mail);
+            }
+        });
 
     }
     public static void sendWelcomeMail(String mail){
