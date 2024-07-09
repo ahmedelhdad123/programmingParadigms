@@ -2,6 +2,7 @@ package com.proramming.paradigms.task2;
 
 
 import java.util.Scanner;
+import java.util.function.Consumer;
 
 public class Task2 {
     public static void main(String[] args) {
@@ -9,20 +10,15 @@ public class Task2 {
         String name = sc.nextLine();
 
         //register(name, Task2::sendWelcomeMail);
-        register(name, new Callback() {
-            @Override
-            public void callBack(String mail) {
-                sendWelcomeMail(mail);
-            }
-        });
+        register(name,mail -> sendWelcomeMail(mail));
 
     }
     public static void sendWelcomeMail(String mail){
         System.out.println("Welcome :) " + mail);
     }
 
-    public static void register(String mail,Callback callback){
-        callback.callBack(mail + "@gmail.com");
+    public static void register(String mail, Consumer<String> callback){
+        callback.accept(mail + "@gmail.com");
     }
 }
 /*

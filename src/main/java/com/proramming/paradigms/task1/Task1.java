@@ -1,13 +1,12 @@
 package com.proramming.paradigms.task1;
 
+import java.util.function.BiFunction;
+
 public class Task1 {
     public static void main(String[] args) {
-        int result = add(5,6);
-        System.out.println(result);
-    }
-
-    public static int add(int a, int b) {
-        return a + b;
+        BiFunction<Integer,Integer,Integer> add= (x,y) -> x+y;
+        int sum = add.apply(1,2);
+        System.out.println(sum);
     }
 }
 /*

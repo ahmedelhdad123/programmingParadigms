@@ -1,17 +1,16 @@
 package com.proramming.paradigms.task3;
 
+import java.util.function.Function;
+
 public class Task3 {
     public static void main(String[] args) {
-
-        Multiply doubleNumber=multiply(2);
-        Multiply tripleNumber=multiply(3);
-
-        System.out.println(doubleNumber.multiply(4));
-        System.out.println(tripleNumber.multiply(4));
-        System.out.println(multiply(5).multiply(6));
+        Function<Integer,Integer>  multiply=multiplyBy(3);
+        System.out.println(multiply);
+        int result = multiply.apply(3);
+        System.out.println(result);
     }
-    public static Multiply multiply(int b) {
-        return (int a) -> a * b;
+    public static Function <Integer,Integer> multiplyBy(int x) {
+        return (y) -> x * y;
     }
 }
 /*
